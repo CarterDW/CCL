@@ -28,7 +28,7 @@ _PK_ALIAS = {
     'c2:c2': 'c2:c2', 'c2:cdelta': 'c2:cdelta',
     'cdelta:cdelta': 'cdelta:cdelta', 'ck:ck': 'zero', 'm:ct': 'm:ct',
     'b1:ct': 'm:ct', 'c1:ct': 'm:ct','c2:ct': 'c2:ct',
-    'cdelta:ct': 'cdelta:ct', 'ct:ct': 'ct:ct', 'ck:ct': 'm:ct'}
+    'cdelta:ct': 'cdelta:ct', 'ct:ct': 'ct:ct', 'ck:ct': 'ck:ct'}
 
 
 class EulerianPTCalculator(CCLAutoRepr):
@@ -531,7 +531,7 @@ class EulerianPTCalculator(CCLAutoRepr):
                    (ct1*c22 + ct2*c21)[:,None] * (tij2sij) +
                    (ct1*cd2 + ct2*cd1)[:,None] * (tijdsij) +
                    (ct1*ct2)[:,None] * (tijtij) +
-                   (ct1*ck2 + ct2*ck1)[:,None] * (tijsij))
+                   (ct1*ck2 + ct2*ck1)[:,None] * (tijsij*(self.k_s**2)[None,:]))
 
         return pii*self.exp_cutoff
 
@@ -767,6 +767,8 @@ class EulerianPTCalculator(CCLAutoRepr):
             pk = self._g4T * self.ia_tij[1]
         elif pk_name == 'cdelta:ct':
             pk = self._g4T * self.ia_tij[0]
+        elif pk_name == 'ct:ck':
+            pk = self.ia_tij[3]*(self.k_s**2)
         elif pk_name == 'ct:ct':
             pk = self.ia_tij[2]
         elif pk_name == 'zero':
