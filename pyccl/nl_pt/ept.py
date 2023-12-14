@@ -409,7 +409,7 @@ class EulerianPTCalculator(CCLAutoRepr):
         Pd1d1 = self.pk_b1
         a00e, c00e, a0e0e, a0b0b = self.ia_ta
         a0e2, b0e2, d0ee2, d0bb2 = self.ia_mix
-        tijdsij, tij2sij, tijtij, tijsij = self.ia_ta
+        tijdsij, tij2sij, tijtij, tijsij = self.ia_tij
         
         if(self.ufpt):
             Pak2 = self.ia_der
@@ -497,7 +497,7 @@ class EulerianPTCalculator(CCLAutoRepr):
         a00e, c00e, a0e0e, a0b0b = self.ia_ta
         ae2e2, ab2b2 = self.ia_tt
         a0e2, b0e2, d0ee2, d0bb2 = self.ia_mix
-        tijdsij, tij2sij, tijtij, tijsij = self.ia_ta
+        tijdsij, tij2sij, tijtij, tijsij = self.ia_tij
         if(self.ufpt):
             Pak2 = self.ia_der
         else:
@@ -553,7 +553,7 @@ class EulerianPTCalculator(CCLAutoRepr):
         Pd1d1 = self.pk_b1
         a00e, c00e, a0e0e, a0b0b = self.ia_ta
         a0e2, b0e2, d0ee2, d0bb2 = self.ia_mix
-        tijdsij, tij2sij, tijtij, tijsij = self.ia_ta
+        tijdsij, tij2sij, tijtij, tijsij = self.ia_tij
         if(self.ufpt):
             Pak2 = self.ia_der
         else:
